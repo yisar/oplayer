@@ -30,4 +30,4 @@ export default function Player() {
 
 ### Screenshot
 
-![QQ图片20200113173222.jpg](https://ws1.sinaimg.cn/mw690/0065Zy9ely1gav2g10r0gj30py1hcmzh.jpg)
+![oplayer](https://ae01.alicdn.com/kf/H5942e06e812c4ff796ca9c818304ae40M.jpg)
