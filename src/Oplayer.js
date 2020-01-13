@@ -6,19 +6,21 @@ import Icon from './Icon'
 
 const { width, height } = Dimensions.get('window')
 const autoHeight = (width * 9) / 16
-let timer = null
 
 export default function Player({ source, themeColor = '#946ce6', callback }) {
+  let timer = null
   const v = useRef(null)
   const [isPlay, setPlay] = useState(true)
   const [isFull, setFull] = useState(false)
   const [control, setControl] = useState(false)
   const [duration, setDuration] = useState(0)
   const [position, setPosition] = useState(0)
+
   const play = () => {
     isPlay ? v.current.pauseAsync() : v.current.playAsync()
     setPlay(!isPlay)
   }
+  
   const full = () => {
     isFull
       ? ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT)
