@@ -26,3 +26,5 @@ export default function Player() {
   )
 }
 ```
+### Screenshot
+![QQ图片20200113173222.jpg](https://ws1.sinaimg.cn/mw690/0065Zy9ely1gav2g10r0gj30py1hcmzh.jpg)
