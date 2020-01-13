@@ -8,7 +8,7 @@ const { width, height } = Dimensions.get('window')
 const autoHeight = (width * 9) / 16
 const timer = null
 
-export default function Player({ source, themeColor, callback }) {
+export default function Player({ source, themeColor = '#946ce6', callback }) {
   const v = useRef(null)
   const [isPlay, setPlay] = useState(true)
   const [isFull, setFull] = useState(false)

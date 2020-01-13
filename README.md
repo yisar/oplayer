@@ -2,6 +2,12 @@
 
 react native video player for expo-av
 
+### Install
+
+```shell
+yarn add oplayer expo-av
+```
+
 ### Use
 
 ```js
