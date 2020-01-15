@@ -1,15 +1,14 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react'
-import { StyleSheet, View, Dimensions, Slider, Text, TouchableHighlight } from 'react-native'
+import { StyleSheet, View, Dimensions, Slider, Text, TouchableHighlight, BackHandler } from 'react-native'
 import { Video } from 'expo-av'
 import { ScreenOrientation } from 'expo'
 import Icon from './Icon'
-
 const { width, height } = Dimensions.get('window')
 const autoHeight = (width * 9) / 16
 
 export default function OPlayer({ url, themeColor = '#946ce6', type = 'mp4', callback }) {
   if (!url) return <View style={s.unfull} />
-  
+
   let v = useRef(null)
   let timer = null
   const [isPlay, setPlay] = useState(true)
@@ -19,12 +18,18 @@ export default function OPlayer({ url, themeColor = '#946ce6', type = 'mp4', cal
   const [position, setPosition] = useState(0)
 
   useEffect(() => {
-    v.current.loadAsync({ uri: url, overrideFileExtensionAndroid: type }).then(() => {
+    v.current.loadAsync({ uri: url }).then(() => {
       v.current.playAsync()
       setPlay(true)
     })
     return () => v.current.unloadAsync()
   }, [url])
+  useEffect(() => {
+    return () => {
+      v.current.unloadAsync()
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT)
+    }
+  }, [])
 
   const play = useCallback(() => {
     isPlay ? v.current.pauseAsync() : v.current.playAsync()
